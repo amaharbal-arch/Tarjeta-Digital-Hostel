@@ -23,7 +23,8 @@ body {
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    overflow: hidden;
+    overflow-y: auto; /* Permite scroll vertical fluido */
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     border: none;
@@ -175,10 +176,12 @@ body {
     display: none;
 }
 .content {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    flex: none; /* Evita que los botones se colapsen o desaparezcan */
+    width: 100%;
+    padding: 1vh 5vw;
+    display: flex;
+    flex-direction: column;
 }
-
 @media (max-height: 600px) {
     .header {
         padding: 2.5vh 5vw;
@@ -206,4 +209,36 @@ body {
     .qr-section {
         display: none;
     }
+}
+
+/* Estilos para la Galería debajo de la frase */
+.gallery-container {
+    padding: 2vh 5vw 4vh;
+    background: rgba(0, 0, 0, 2);
+    flex-shrink: 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas ergonómicas */
+    gap: 15px;
+}
+
+/* La última foto toma todo el ancho para completar las 5 imágenes */
+.gallery-grid img:last-child {
+    grid-column: span 2;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #F5DEB3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:active {
+    transform: scale(0.98);
 }
