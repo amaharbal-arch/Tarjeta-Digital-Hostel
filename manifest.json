@@ -1,6 +1,6 @@
 {
   "name": "Atípico Hostel",
-  "short_name": "Atípico",
+  "short_name": "Atípico Hostel",
   "description": "Tarjeta digital PWA de Atípico Hostel",
   "start_url": "./index.html",
   "display": "standalone",
